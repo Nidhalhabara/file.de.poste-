@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrait de Colis</title>
+    <link rel="stylesheet" href="retrait.css">
+</head>
+<body>
+<div class="container">
+    <div class="sidebar">
+        <h2>Contact</h2>
+        <p>Email: algerieposte@gmail.com</p>
+        <p>Téléphone: +213770015660</p>
+        <p>Adresse: 123 Rue de la Poste, Constantine, Algérie</p>
+    </div>
+    <div class="content">
+    <img src="AlgeriePoste.png" alt="Logo" class="logo">
+    <h2>Retrait de Colis</h2>
+    <div class="service-details">
+        <p>Nom du client: <span id="client-name"></span></p>
+        <p>Service demandé: Retrait de Colis</p>
+        <p>Numéro de guichet: 2</p>
+        <p>Date de rendez-vous: <span id="appointment-date"></span></p>
+        <!-- Ajout du numéro de file d'attente -->
+        <p>Votre numéro: <span id="queue-number"></span></p>  </div>
+    <div class="actions">
+        <button onclick="confirmAppointment()">Confirmer</button>
+        <button onclick="cancelAppointment()">Annuler</button>
+    </div>
+</div>
+<div class="buttons-container">
+    <a href="interface.html"> <button  class="custom-btn" id="home-btn">Home</button></a>
+    
+    
+    </div>
+<script>
+    // Récupérer le nom du client et le numéro de file d'attente depuis localStorage
+    document.getElementById("client-name").innerText = localStorage.getItem("clientName");
+    var queueNumber = parseInt(localStorage.getItem("queueNumber"));
+    document.getElementById("queue-number").innerText = queueNumber;
+
+    // Obtenir la date de demain
+    var tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    var formattedDate = tomorrow.toLocaleDateString('fr-FR'); // Formater la date au format français
+
+    // Afficher la date de demain
+    document.getElementById("appointment-date").innerText = formattedDate;
+
+    function confirmAppointment() {
+        // Incrémenter le numéro de file d'attente
+        queueNumber++;
+        localStorage.setItem("queueNumber", queueNumber);
+        document.getElementById("queue-number").innerText = queueNumber;
+
+        // Afficher un message de confirmation
+        alert("Votre demande a été confirmée avec succès!");
+     
+    }
+
+    function cancelAppointment() {
+        // Rediriger vers la page client.html
+        window.location.href = "client.html";
+    }
+
+    
+</script>
+
+</body>
+</html>

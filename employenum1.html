@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poste Algérienne - Gestionnaire d'Attente</title>
+    <link rel="stylesheet" href="employe3.css">
+</head>
+<body>
+    <div class="container">
+        <img src="AlgeriePoste.png" alt="Logo" class="logo">
+        <h2>Surveillance de la File d'Attente</h2>
+        <table id="ticketTable">
+            <tr>
+              <th>Numéro de Ticket</th>
+              <th>Nom</th>
+              <th>Service Demandé</th> <!-- Modifier ici -->
+            </tr>
+        </table>
+        <button onclick="confirmerClient()">Afficher client</button>
+    
+        <hr>
+
+        <div class="section">
+            <h3>Détails de l'Employé</h3>
+            <div id="employee-details">
+                <!-- Les détails de l'employé seront affichés ici -->
+            </div>
+            <button id="nextClientBtn" class="button">Appeler le prochain client</button>
+            <div id="currentClient"></div>
+        </div>
+        
+        <hr>
+
+        <div class="section">
+            <h3>Annuler Ticket Client</h3>
+            <form id="cancel-form">
+                <div class="form-group">
+                    <label for="ticket-number">Numéro de Ticket:</label>
+                    <input type="text" id="ticket-number" name="ticket-number" required>
+                </div>
+                <div class="form-group">
+                    <label for="reason">Raison de l'Annulation:</label>
+                    <textarea id="reason" name="reason" required></textarea>
+                </div>
+                <button type="submit">Annuler Ticket</button>
+            </form>
+            <div id="message"></div>
+        </div>
+        
+        <hr>
+        <div class="section">
+            <h3>Service Client - Poste</h3>
+            <form id="service-form">
+                <div class="form-group">
+                </div>
+        <div class="service-retrait">
+            <form id="service-form-retrait">
+                <div class="section">
+                    <h3> *Envoi de Colis*</h3>
+                </div>
+    <form id="service-form-envoi">
+        <div class="form-group">
+            <label for="client-ticket-envoi">Numéro de Ticket:</label>
+            <input type="text" id="client-ticket-envoi" name="client-ticket-envoi" required>
+        </div>
+        <div class="form-group">
+            <label for="client-name-envoi">Nom du Client:</label>
+            <input type="text" id="client-name-envoi" name="client-name-envoi" required>
+        </div>
+        <div class="form-group" id="weight-group">
+            <label for="package-weight-envoi">Poids du Colis (kg):</label>
+            <input type="number" id="package-weight-envoi" name="package-weight-envoi" min="0" step="0.1" required>
+        </div>
+        <div class="form-group" id="destination-group">
+            <label for="destination-envoi">Destination:</label>
+            <input type="text" id="destination-envoi" name="destination-envoi" required>
+        </div>
+        <button type="submit">Confirmer</button>
+    </form>
+    <div id="message-envoi"></div>
+</div>
+<div class="buttons-container">
+    <a href="interface.html"> <button  class="custom-btn" id="home-btn">Home</button></a>
+    
+    
+    </div>
+    <script>
+        
+
+function confirmerClient() {
+    var nom = localStorage.getItem("clientName");
+    var numTicket = localStorage.getItem("queueNumber");
+    var etat = "envoi colis";
+  
+    if (nom && numTicket) {
+      var table = document.getElementById("ticketTable");
+      var row = table.insertRow(-1);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
+  
+      cell1.innerHTML = numTicket;
+      cell2.innerHTML = nom;
+      cell3.innerHTML = etat;
+    }
+  }
+  
+    </script>
+
+<script>
+    window.onload = function() {
+        // Récupérer les valeurs du stockage local
+        var employeeNumber = localStorage.getItem("employeeNumber");
+        var guichet = localStorage.getItem("guichet");
+
+        // Afficher les valeurs dans la deuxième page
+        var detailsDiv = document.getElementById("employee-details");
+        detailsDiv.innerHTML = "<p>Numéro d'employé: " + employeeNumber + "</p>" +
+                               "<p>Guichet: " + guichet + "</p>";
+    }
+</script>
+<script src="script1.js"></script>
+</body>
+</html>

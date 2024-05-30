@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion Employé</title>
+    <link rel="stylesheet" href="employe.css">
+</head>
+<body>
+<div class="container">
+    <div class="employee-login">
+        <img src="AlgeriePoste.png" alt="Logo" class="logo"> <!-- Ajout du logo ici -->
+        <h2>Connexion Employé</h2>
+        <form id="employee-login-form" onsubmit="return validateLoginForm()">
+            <label for="employee-username">Nom d'utilisateur:</label>
+            <input type="text" id="employee-username" name="employee-username" placeholder="Entrez votre nom d'utilisateur">
+            <label for="employee-password">Mot de passe:</label>
+            <input type="password" id="employee-password" name="employee-password" placeholder="Entrez votre mot de passe">
+            
+            <button type="submit" class="user-button">Se connecter</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function validateLoginForm() {
+        var username = document.getElementById("employee-username").value;
+        var password = document.getElementById("employee-password").value;
+
+        // Vérifier si le nom d'utilisateur et le mot de passe correspondent aux valeurs spécifiées
+        if (username === "algerieposte@gmail.com" && password === "algerieposte") {
+            // Rediriger vers la page employe2.html si les informations sont valides
+            window.location.href = "employe2.html";
+            return false; // Empêcher la soumission normale du formulaire
+        } else {
+            // Afficher un message d'erreur et empêcher la soumission du formulaire
+            alert("Nom d'utilisateur ou mot de passe incorrect.");
+            return false;
+        }
+    }
+</script>
+
+</body>
+</html>

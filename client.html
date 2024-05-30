@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File d'attente de la Poste</title>
+    <link rel="stylesheet" href="client.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="sidebar">
+            <h2>Contact</h2>
+            <p>Email: algerieposte@gmail.com</p>
+            <p>Téléphone: +21377015660</p>
+            <p>Adresse: 123 Rue de la Poste,constantine,algerie</p>
+        </div>
+    
+        <div class="content">
+            <div class="header">
+                <img src="AlgeriePoste.png" alt="Post Office" class="header-image">
+                <h1>File d'attente Postale en ligne</h1>
+    
+                <div class="container">
+                    <form action="queue.html" method="get" onsubmit="return saveClientName()">
+                        <label for="name">Votre nom :</label>
+                        <input type="text" id="name" name="name" required>
+                        <p>Veuillez sélectionner l'action que vous souhaitez effectuer :</p>
+    
+                        <div class="actions">
+                            <button id="envoi-colis-btn" onclick="fillServiceDemand('Envoi colis')"><li><a href="envoicolis.html">Envoi colis</a></li></button>
+                            <button id="retrait-colis-btn" onclick="fillServiceDemand('Retrait colis')"><li><a href="retrait.html">Retrait colis</a></li></button>
+                            <button id="achat-timbres-btn" onclick="fillServiceDemand('Achat timbres')"><li><a href="achat.html">Achat timbres</a></li></button>
+                            
+                        </div>
+                    </form>
+                </div>
+                <div class="background-image"></div>
+                <div class="queue-container" id="queue-container" style="display:none;">
+                    <h1>File d'attente de la Poste</h1>
+                    <div class="queue" id="queue">
+                        <!-- La file d'attente sera ajoutée ici dynamiquement -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="buttons-container">
+        <a href="interface.html"> <button  class="custom-btn" id="home-btn">Home</button></a>
+        </div>
+        
+        <script>
+
+            // Fonction pour enregistrer le nom du client dans le stockage local
+            function saveClientName() {
+                var clientName = document.getElementById("name").value;
+                localStorage.setItem("clientName", clientName);
+                return true;
+            }
+        
+            // Fonction pour remplir la colonne "Service Demandé" du tableau avec le service correspondant
+            function fillServiceDemand(service) {
+                var ticketTable = document.getElementById("ticketTable");
+                var rowCount = ticketTable.rows.length;
+                var row = ticketTable.insertRow(rowCount);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                cell1.innerHTML = rowCount; // Numéro de ticket
+                cell2.innerHTML = localStorage.getItem("clientName"); // Nom du client
+                cell3.innerHTML = service; // Service demandé
+            }
+
+            // Fonction pour confirmer le client enregistré
+            function confirmerClient(service) {
+                var nom = localStorage.getItem("clientName");
+                var numTicket = localStorage.getItem("queueNumber");
+              
+                if (nom && numTicket) {
+                    var table = document.getElementById("ticketTable");
+                    var row = table.insertRow(-1);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+                
+                    cell1.innerHTML = numTicket;
+                    cell2.innerHTML = nom;
+                    cell3.innerHTML = service;
+                }
+            }
+        </script>
+</body>
+</html>

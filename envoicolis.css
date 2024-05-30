@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    background-image: url('nvpost11.jpg');
+    background-size:120%;
+    z-index: -1;
+}
+
+.container {
+    width: 800px;
+    margin: 50px auto;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.service-details {
+    margin-bottom: 20px;
+}
+
+.service-details p {
+    margin-bottom: 10px;
+}
+
+.actions button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.actions button:hover {
+    background-color: #0056b3;
+}
+.logo {
+    width: 90px; /* Taille du logo */
+    height: auto; /* Permet de conserver les proportions */
+    display: block; /* Pour centrer le logo */
+    margin: 0 auto 20px; /* Ajoute un espace en dessous du logo */
+}
+/* CSS pour la barre latérale */
+.sidebar {
+    flex: 0 0 250px; /* Largeur de la barre latérale */
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-bottom: 10px;
+}
+
+.sidebar p {
+    margin-bottom: 5px;
+}
+
+/* CSS pour le contenu principal */
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+}
+
+.buttons-container {
+    position:absolute;
+    top: 0;
+    left: 6%; /* pour centrer horizontalement */
+    transform: translate(-50%,100%) ;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    border: 1px solid #b3b3b3;
+   
+}
+.custom-btn {
+    background-color: #1908ff; /* Blue */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block; /* Permet d'ajuster la largeur des boutons */
+    font-size: 16px;
+    margin: 0 10px; /* Ajoute un espacement entre les boutons */
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.custom-btn:hover {
+    background-color: #0056b3; /* Darker Blue */
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Postale</title>
+    <link rel="stylesheet" href="interface.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <img src="AlgeriePoste.png" alt="Logo de l'application postale" class="logo">
+        <h1>Bienvenue à la Poste</h1>
+    </div>
+    <div class="main-content">
+        <div class="user-space">
+            <h2>Espace Utilisateur</h2>
+            <!-- Button for user to proceed to the next step -->
+            <a href="client.html" id="user-next-step" class="user-button">Passer à l'étape suivante</a>
+        </div>
+        <div class="employee-space">
+            <h2>Espace Employé</h2>
+            <!-- Button for employee login -->
+            
+            <a href="employe.html" id="user-next-step" class="user-button">Connexion Employé</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function loginEmploye() {
+        // Rediriger vers la page de login de l'employé ou effectuer toute autre action nécessaire
+        window.location.href = "login_employe.html";
+    }
+</script>
+
+</body>
+</html>

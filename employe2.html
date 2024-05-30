@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choix du Guichet</title>
+    <link rel="stylesheet" href="employe2.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="employee-form">
+        <img src="AlgeriePoste.png" alt="Logo" class="logo">
+        <h2>Choix du Guichet</h2>
+        <form id="employee-info-form" onsubmit="handleSubmit(event)">
+            <label for="employee-number">Numéro d'employé :</label>
+            <select id="employee-number" name="employee-number" onchange="updateGuichet()" required>
+                <option value="" disabled selected>Sélectionnez votre numéro d'employé</option>
+                <option value="1">Employé 1 - Envoi colis</option>
+                <option value="2">Employé 2 - Retrait colis</option>
+                <option value="3">Employé 3 - Achat timbres</option>
+            </select>
+            <label for="guichet">Guichet :</label>
+            <input type="text" id="guichet" name="guichet" placeholder="Guichet" readonly required>
+            <button type="submit">Valider</button>
+        </form>
+    </div>
+</div>
+<script>
+    function updateGuichet() {
+        var employeeNumber = document.getElementById("employee-number").value;
+        var guichetField = document.getElementById("guichet");
+        
+        // Mettre à jour le champ de guichet en fonction du numéro d'employé sélectionné
+        switch (employeeNumber) {
+            case "1":
+                guichetField.value = "Guichet 1 - Envoi colis";
+                break;
+            case "2":
+                guichetField.value = "Guichet 2 - Retrait colis";
+                break;
+            case "3":
+                guichetField.value = "Guichet 3 - Achat timbres";
+                break;
+            default:
+                guichetField.value = "";
+        }
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        // Récupérer les valeurs du formulaire
+        var employeeNumber = document.getElementById("employee-number").value;
+        var guichet = document.getElementById("guichet").value;
+
+        // Stocker les valeurs dans le stockage local
+        localStorage.setItem("employeeNumber", employeeNumber);
+        localStorage.setItem("guichet", guichet);
+
+        // Redirection vers la page appropriée en fonction de l'employé sélectionné
+        switch (employeeNumber) {
+            case "1":
+                window.location.href = "employenum1.html"; // Redirection vers la page d'envoi de colis
+                break;
+            case "2":
+                window.location.href = "employenum2.html"; // Redirection vers la page de retrait de colis
+                break;
+            case "3":
+                window.location.href = "employenum3.html"; // Redirection vers la page d'achat de timbres
+                break;
+            default:
+                // Si aucune correspondance, rester sur la même page
+                window.location.href = "employe2.html";
+        }
+    }
+</script>
+
+
+</body>
+</html>

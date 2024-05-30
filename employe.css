@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    background-image: url('nvpost11.jpg');
+    background-size:120%;
+    z-index: -1;
+}
+
+.container {
+    width: 800px;
+    margin: 50px auto;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.employee-login {
+    text-align: center;
+}
+
+.employee-login h2 {
+    margin-bottom: 20px;
+}
+
+.employee-login form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.employee-login label {
+    margin-bottom: 10px;
+}
+
+.employee-login input[type="text"],
+.employee-login input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.employee-login button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.employee-login button:hover {
+    background-color: #0056b3;
+}
+.user-button {
+    display: block;
+    margin: 0 auto;
+    padding: 13px 20px; /* Ajustez la taille des boutons selon vos besoins */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.user-button:hover {
+    background-color: #0056b3;
+}
+.logo {
+    width: 90px; /* Taille du logo */
+    height: auto; /* Permet de conserver les proportions */
+    display: block; /* Pour centrer le logo */
+    margin: 0 auto 20px; /* Ajoute un espace en dessous du logo */
+}
